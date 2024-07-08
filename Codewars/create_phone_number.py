@@ -18,11 +18,7 @@ def create_phone_number(n):
         else:
             continue
 
-    number = ''.join(str(number) for number in n)
-    return number
-
-
-print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+    return ''.join(str(number) for number in n)
 
 
 """
@@ -30,8 +26,15 @@ best practice:
 """
 
 
-def create_phone_number(n):
+def create_phone_number1(n):
     return '({}{}{}) {}{}{}-{}{}{}{}'.format(*n)
 
 
-print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))  # Output: "(123) 456-7890"
+def create_phone_number2(n):
+    n = ''.join(map(str, n))
+    return '(%s) %s-%s'%(n[:3], n[3:6], n[6:])
+
+
+print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+print(create_phone_number1([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+print(create_phone_number2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
