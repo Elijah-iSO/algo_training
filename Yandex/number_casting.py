@@ -64,16 +64,6 @@ K — любое положительное число от 1 до 500.
 """
 
 
-def play(n: int, k: int):
-    n_list = list(range(1, n+1))
-    for person in n_list:
-        person_out = person + k - 1
-        if person_out > n:
-            person_out = person_out - n
-        n_list.remove(person_out)
-    return n_list[0]
-
-
 def recursion(n: int, k: int, n_list, person_start: int = 0):
     person_out = (person_start + k - 1) % len(n_list)
 
